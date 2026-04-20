@@ -1371,7 +1371,10 @@
     <h2 class="newsletter-title">Ne ratez aucune <span>nouvelle offre</span></h2>
     <p class="newsletter-desc">Inscrivez-vous pour recevoir en avant-première toutes les nouvelles offres de parrainage dès leur publication.</p>
 
-    <form class="newsletter-form" id="nlForm" action="https://formspree.io/f/VOTRE_ID" method="POST">
+    <form class="newsletter-form" id="nlForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="6917f1bb-f865-4903-bda7-fd5e713e9cc5" />
+      <input type="hidden" name="subject" value="Nouvelle inscription newsletter ParrainageHub" />
+      <input type="hidden" name="from_name" value="ParrainageHub" />
       <input
         class="newsletter-input"
         type="email"
