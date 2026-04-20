@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ParrainageHub · @Wrld_zak</title>
+  <meta name="description" content="Codes et liens de parrainage exclusifs — banques, crypto, trading. Gagnez jusqu'à 250 € en vous inscrivant." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #08080b;
+      --surface: #111116;
+      --card: #141418;
+      --card2: #18181f;
+      --border: #222230;
+      --border2: #2e2e40;
+      --accent: #f97316;
+      --accent2: #a855f7;
+      --accent3: #06b6d4;
+      --green: #22c55e;
+      --gold: #f59e0b;
+      --text: #f0f0f5;
+      --muted: #72728a;
+      --radius: 18px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: clip;
+      width: 100%;
+    }
+
+    /* ── ANIMATED BG ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(249,115,22,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(168,85,247,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 50%, rgba(6,182,212,.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 70px 20px 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-glow {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 800px;
+      height: 500px;
+      background: radial-gradient(ellipse at 50% 20%, rgba(249,115,22,.22) 0%, transparent 65%);
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249,115,22,.1);
+      border: 1px solid rgba(249,115,22,.25);
+      color: var(--accent);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .pulse {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,.6); }
+      50% { box-shadow: 0 0 0 6px rgba(249,115,22,0); }
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 6px;
+    }
+
+    h1 .brand-plain { color: var(--text); }
+
+    h1 .brand-grad {
+      background: linear-gradient(135deg, #f97316 0%, #fb923c 40%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: 14px;
+      font-size: 15px;
+      max-width: 500px;
+      margin-inline: auto;
+    }
+
+    .subtitle strong { color: var(--text); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin: 36px auto 0;
+      max-width: 600px;
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 120px;
+      padding: 18px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .stat + .stat::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--border2);
+    }
+
+    .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), #fb923c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: .5px;
+      margin-top: 2px;
+    }
+
+    /* ── STICKY NAV ── */
+    nav.nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 6px;
+      padding: 12px 20px;
+      background: rgba(8,8,11,.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border2);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    nav.nav::-webkit-scrollbar { display: none; }
+
+    nav.nav a {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border2);
+      color: var(--muted);
+      background: var(--card);
+      transition: all .2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    nav.nav a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(249,115,22,.1);
+    }
+
+    nav.nav a.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(249,115,22,.12);
+    }
+
+    /* offset anchors so sticky nav doesn't cover them */
+    section[id], #bonus {
+      scroll-margin-top: 62px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── BONUS 10e FILLEUL ── */
+    .bonus-banner {
+      position: relative;
+      background: linear-gradient(135deg, #1a0a2e 0%, #0f1a0a 50%, #1a0f00 100%);
+      border: 1px solid transparent;
+      border-radius: 24px;
+      padding: 40px 36px;
+      margin-bottom: 64px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .bonus-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--accent2), var(--gold), var(--accent));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .bonus-banner::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(ellipse at 50% 50%, rgba(168,85,247,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .bonus-sparkles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .sparkle {
+      position: absolute;
+      font-size: 20px;
+      opacity: .25;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .sparkle:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .sparkle:nth-child(2) { top: 20%; right: 8%; animation-delay: .7s; }
+    .sparkle:nth-child(3) { bottom: 15%; left: 12%; animation-delay: 1.4s; }
+    .sparkle:nth-child(4) { bottom: 10%; right: 5%; animation-delay: 2.1s; }
+    .sparkle:nth-child(5) { top: 50%; left: 2%; animation-delay: 2.8s; }
+    .sparkle:nth-child(6) { top: 50%; right: 2%; animation-delay: .35s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: .2; }
+      50% { transform: translateY(-10px) rotate(15deg); opacity: .4; }
+    }
+
+    .bonus-icon {
+      font-size: 52px;
+      margin-bottom: 16px;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(245,158,11,.5));
+      animation: iconPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .bonus-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245,158,11,.15);
+      border: 1px solid rgba(245,158,11,.35);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .bonus-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .bonus-title .gold {
+      background: linear-gradient(135deg, var(--gold), #fbbf24, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bonus-desc {
+      font-size: 15px;
+      color: #c4b5fd;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+
+    .bonus-desc strong { color: #fde047; }
+
+    /* Steps */
+    .bonus-steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 20px;
+      position: relative;
+    }
+
+    .step + .step::before {
+      content: '→';
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent2), var(--gold));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: center;
+      max-width: 90px;
+    }
+
+    .bonus-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--gold), #f97316);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all .2s;
+      box-shadow: 0 4px 24px rgba(245,158,11,.35);
+    }
+
+    .bonus-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(245,158,11,.5);
+    }
+
+    .bonus-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    .bonus-proof-box {
+      background: rgba(6,182,212,.08);
+      border: 1px solid rgba(6,182,212,.25);
+      border-radius: 14px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: #a5f3fc;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 24px;
+      text-align: left;
+    }
+
+    .bonus-proof-box strong { color: #67e8f9; }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 64px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .section-icon.orange { background: rgba(249,115,22,.15); }
+    .section-icon.purple { background: rgba(168,85,247,.15); }
+    .section-icon.cyan   { background: rgba(6,182,212,.15); }
+    .section-icon.green  { background: rgba(34,197,94,.15); }
+
+    .section-info { flex: 1; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -.3px;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border2), transparent);
+    }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 16px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle at top right, rgba(249,115,22,.07), transparent 70%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(249,115,22,.4);
+      box-shadow: 0 12px 40px rgba(249,115,22,.12), 0 0 0 1px rgba(249,115,22,.08);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .card-icon-wrap {
+      width: 50px; height: 50px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .card-meta { flex: 1; }
+
+    .platform {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .card-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: -.3px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: -4px 0;
+    }
+
+    .reward {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34,197,94,.1);
+      border: 1px solid rgba(34,197,94,.2);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 10px;
+      width: fit-content;
+    }
+
+    .reward::before { content: '💰'; font-size: 12px; }
+
+    .condition {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: -6px;
+    }
+
+    .desc {
+      font-size: 13px;
+      color: #9898b0;
+      line-height: 1.65;
+    }
+
+    .tip {
+      background: rgba(168,85,247,.08);
+      border: 1px solid rgba(168,85,247,.18);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #c4b5fd;
+      line-height: 1.6;
+    }
+
+    .tip strong { color: #d8b4fe; }
+
+    .warn-box {
+      background: rgba(234,179,8,.07);
+      border: 1px solid rgba(234,179,8,.2);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #fde047;
+      line-height: 1.6;
+    }
+
+    /* ── CODE ROW ── */
+    .code-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 10px 10px 10px 16px;
+    }
+
+    .code-left { flex: 1; min-width: 0; }
+
+    .code-label {
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .code-value {
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .copy-btn {
+      background: rgba(249,115,22,.15);
+      border: 1px solid rgba(249,115,22,.3);
+      color: var(--accent);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    .copy-btn:hover { background: rgba(249,115,22,.3); transform: scale(1.03); }
+    .copy-btn.copied { background: rgba(34,197,94,.15); border-color: rgba(34,197,94,.3); color: var(--green); }
+
+    /* ── CTA ── */
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent), #fb923c);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 13px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all .2s;
+      box-shadow: 0 4px 16px rgba(249,115,22,.25);
+    }
+
+    .cta:hover { opacity: .92; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(249,115,22,.35); }
+    .cta::after { content: '→'; }
+
+    .cta-ghost {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      color: var(--muted);
+      box-shadow: none;
+    }
+
+    .cta-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(249,115,22,.08);
+      box-shadow: none;
+    }
+
+    .actions { display: flex; flex-direction: column; gap: 8px; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .newsletter-box {
+      background: linear-gradient(135deg, #0f0f1a 0%, #0a1a0f 100%);
+      border: 1px solid transparent;
+      border-radius: 24px;
+      padding: 48px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .newsletter-box::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(ellipse at 50% 50%, rgba(249,115,22,.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .newsletter-icon {
+      font-size: 44px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .newsletter-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(249,115,22,.12);
+      border: 1px solid rgba(249,115,22,.28);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -.5px;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-title span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .newsletter-desc {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 440px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      max-width: 460px;
+      margin: 0 auto 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s;
+      min-width: 0;
+    }
+
+    .newsletter-input::placeholder { color: var(--muted); }
+    .newsletter-input:focus { border-color: var(--accent); }
+
+    .newsletter-btn {
+      background: linear-gradient(135deg, var(--accent), #fb923c);
+      border: none;
+      border-radius: 12px;
+      padding: 14px 22px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all .2s;
+      box-shadow: 0 4px 16px rgba(249,115,22,.3);
+    }
+
+    .newsletter-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(249,115,22,.4); }
+    .newsletter-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .newsletter-perks {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .perk {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .perk::before { font-size: 13px; }
+    .perk.p1::before { content: '🔔'; }
+    .perk.p2::before { content: '🎁'; }
+    .perk.p3::before { content: '🔒'; }
+
+    .newsletter-success {
+      display: none;
+      background: rgba(34,197,94,.1);
+      border: 1px solid rgba(34,197,94,.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      max-width: 460px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 480px) {
+      .newsletter-form { flex-direction: column; }
+      .newsletter-box { padding: 32px 20px; }
+    }
+
+    /* ── SOCIAL ── */
+    .social-section {
+      text-align: center;
+      padding: 48px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%; max-width: 600px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border2), transparent);
+    }
+
+    .social-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: .3px;
+    }
+
+    .social-handle {
+      font-size: 22px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -.5px;
+      margin-bottom: 24px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--border2);
+      color: var(--text);
+      background: var(--card);
+      transition: all .2s;
+    }
+
+    .social-btn:hover { transform: translateY(-3px); }
+
+    .social-btn.ig { border-color: #e1306c; color: #e1306c; background: rgba(225,48,108,.08); }
+    .social-btn.ig:hover { background: rgba(225,48,108,.15); box-shadow: 0 4px 20px rgba(225,48,108,.2); }
+    .social-btn.tk { border-color: #69c9d0; color: #69c9d0; background: rgba(105,201,208,.08); }
+    .social-btn.tk:hover { background: rgba(105,201,208,.15); box-shadow: 0 4px 20px rgba(105,201,208,.2); }
+    .social-btn.sc { border-color: #fffc00; color: #e6e300; background: rgba(255,252,0,.05); }
+    .social-btn.sc:hover { background: rgba(255,252,0,.1); box-shadow: 0 4px 20px rgba(255,252,0,.15); }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: rgba(234,179,8,.05);
+      border: 1px solid rgba(234,179,8,.12);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 48px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .disclaimer strong { color: #fde047; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 12px;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer::before {
+      content: '';
+      display: block;
+      width: 100%; max-width: 400px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border2), transparent);
+      margin: 0 auto 28px;
+    }
+
+    footer .brand { color: var(--accent); font-weight: 800; }
+
+    /* ── TOAST ── */
+    #toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: linear-gradient(135deg, var(--green), #16a34a);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: 999px;
+      opacity: 0;
+      transition: all .3s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(34,197,94,.4);
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 540px) {
+      .grid { grid-template-columns: 1fr; }
+      .stats-bar { flex-direction: column; }
+      .stat + .stat::before { display: none; }
+      .bonus-steps { flex-direction: column; align-items: center; }
+      .step + .step::before { display: none; }
+      .bonus-banner { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="toast">✓ Code copié !</div>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-glow"></div>
+  <div class="live-badge">
+    <div class="pulse"></div>
+    Offres actives · Avril 2026
+  </div>
+  <h1>
+    <span class="brand-plain">Parrainage</span><span class="brand-grad">Hub</span>
+  </h1>
+  <p class="subtitle">Codes &amp; liens exclusifs pour gagner jusqu'à <strong>250 €</strong> en ouvrant un compte. Utilisez les offres ci-dessous.</p>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Offres actives</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">750 €</div>
+      <div class="stat-label">Gains max cumulés</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50 €</div>
+      <div class="stat-label">Bonus 10e filleul</div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <a href="#bonus">🎁 Bonus exclusif</a>
+  <a href="#banques">🏦 Banques</a>
+  <a href="#trading">📈 Trading</a>
+  <a href="#crypto">🪙 Crypto</a>
+  <a href="#rewards">🎮 Rewards</a>
+</nav>
+<div style="height:12px"></div>
+
+<main>
+
+  <!-- ══ BONUS 10e FILLEUL ══ -->
+  <section class="section" id="bonus">
+    <div class="bonus-banner">
+      <div class="bonus-sparkles">
+        <span class="sparkle">✦</span>
+        <span class="sparkle">★</span>
+        <span class="sparkle">✦</span>
+        <span class="sparkle">★</span>
+        <span class="sparkle">✦</span>
+        <span class="sparkle">★</span>
+      </div>
+
+      <span class="bonus-icon">🎁</span>
+
+      <div class="bonus-tag">✦ Bonus exclusif @Wrld_zak</div>
+
+      <h2 class="bonus-title">
+        Le <span class="gold">10e filleul</span> reçoit<br/>
+        <span class="gold">50 € de ma poche</span>
+      </h2>
+
+      <p class="bonus-desc">
+        Tous les <strong>10 filleuls</strong>, le 10e à s'inscrire via mes liens reçoit <strong>50 € en cadeau</strong>, directement de ma poche. Il suffit de m'envoyer une <strong>preuve d'inscription</strong> sur l'un de mes réseaux.
+      </p>
+
+      <div class="bonus-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-label">Inscris-toi via un de mes liens</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-num-arrow"></div>
+          <div class="step-label">Envoie-moi une capture d'écran en preuve</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-label">Si tu es le 10e, tu reçois 50 € cash</div>
+        </div>
+      </div>
+
+      <div class="bonus-proof-box">
+        📸 &nbsp;<strong>Comment envoyer la preuve ?</strong><br/>
+        Fais une capture d'écran de ton inscription validée et envoie-la en DM à <strong>@Wrld_zak</strong> sur Instagram, TikTok ou Snapchat. Je confirme et vire les 50 € immédiatement.
+      </div>
+
+      <a href="https://www.instagram.com/Wrld_zak" class="bonus-cta" target="_blank" rel="noopener">M'envoyer un message 💬</a>
+
+      <p class="bonus-note">Virement instantané · Valable sur toutes les plateformes du site</p>
+    </div>
+  </section>
+
+  <!-- ══ BANQUES ══ -->
+  <section class="section" id="banques">
+    <div class="section-header">
+      <div class="section-icon orange">🏦</div>
+      <div class="section-info">
+        <div class="section-label">Catégorie</div>
+        <div class="section-name">Banques en ligne</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="grid">
+
+      <!-- Fortuneo -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">🍊</div>
+          <div class="card-meta">
+            <div class="platform">Banque en ligne</div>
+            <div class="card-name">Fortuneo</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">Jusqu'à 250 €</div>
+        <div class="condition">Cumulable : carte Fosfo · PEA · assurance-vie</div>
+        <div class="desc">Ouvrez un compte courant avec carte Fosfo (80 €), un PEA (100 €) ou une assurance-vie (70 €). Primes versées après conditions d'utilisation remplies.</div>
+        <div class="code-row">
+          <div class="code-left">
+            <div class="code-label">Code parrainage</div>
+            <div class="code-value">14085681</div>
+          </div>
+          <button class="copy-btn" onclick="copyCode('14085681', this)">Copier</button>
+        </div>
+        <div class="actions">
+          <a class="cta cta-ghost" href="https://www.fortuneo.fr" target="_blank" rel="noopener">Utiliser ce lien</a>
+        </div>
+      </div>
+
+      <!-- N26 -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">🌿</div>
+          <div class="card-meta">
+            <div class="platform">Néobanque</div>
+            <div class="card-name">N26</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">25 € à 75 €</div>
+        <div class="condition">Standard 25€ · Smart 40€ · Go 60€ · Metal 75€</div>
+        <div class="desc">Inscrivez-vous avec le code, ouvrez un compte et effectuez 1 transaction par carte d'au moins 25 €.</div>
+        <div class="tip"><strong>💡 Astuce :</strong> Faites un achat de 25 € en magasin puis demandez un remboursement en caisse — votre mise est récupérée et la prime reste acquise !</div>
+        <div class="code-row">
+          <div class="code-left">
+            <div class="code-label">Code parrainage</div>
+            <div class="code-value">zakarysb07305c</div>
+          </div>
+          <button class="copy-btn" onclick="copyCode('zakarysb07305c', this)">Copier</button>
+        </div>
+        <div class="actions">
+          <a class="cta cta-ghost" href="https://n26.com/fr-fr" target="_blank" rel="noopener">Utiliser ce lien</a>
+        </div>
+      </div>
+
+      <!-- Revolut -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">💳</div>
+          <div class="card-meta">
+            <div class="platform">Néobanque</div>
+            <div class="card-name">Revolut</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">Jusqu'à 200 €</div>
+        <div class="condition">Cashback sur vos premiers achats</div>
+        <div class="desc">Ouvrez un compte Revolut via le lien, vérifiez votre identité, ajoutez de l'argent, effectuez 3 achats de 5 € minimum et commandez une carte physique.</div>
+        <div class="tip"><strong>💡 Astuce :</strong> Faites un achat de 5 € en magasin puis demandez un remboursement en caisse — votre mise est récupérée et les conditions sont remplies !</div>
+        <div class="actions">
+          <a class="cta" href="https://www.revolut.com/fr-FR/referral/?referral-code=zakaryoepj%21APR1-26-VR-FR" target="_blank" rel="noopener">Utiliser ce lien</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ TRADING ══ -->
+  <section class="section" id="trading">
+    <div class="section-header">
+      <div class="section-icon purple">📈</div>
+      <div class="section-info">
+        <div class="section-label">Catégorie</div>
+        <div class="section-name">Trading &amp; Investissement</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="grid">
+
+      <!-- Trade 212 -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">📊</div>
+          <div class="card-meta">
+            <div class="platform">Trading &amp; Investissement</div>
+            <div class="card-name">Trade 212</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">Action gratuite offerte</div>
+        <div class="condition">Valeur aléatoire — dépôt de 10 € requis</div>
+        <div class="desc">Inscrivez-vous avec le lien de parrainage, vérifiez votre identité et effectuez un dépôt de 10 € pour recevoir une action gratuite.</div>
+        <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
+        <div class="tip"><strong>💡</strong> Le dépôt de 10 € est récupérable instantanément après validation.</div>
+        <div class="actions">
+          <a class="cta" href="https://www.trading212.com/fr/invite/4DtCsYMcP9k" target="_blank" rel="noopener">Utiliser ce lien</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ CRYPTO ══ -->
+  <section class="section" id="crypto">
+    <div class="section-header">
+      <div class="section-icon cyan">🪙</div>
+      <div class="section-info">
+        <div class="section-label">Catégorie</div>
+        <div class="section-name">Crypto &amp; Web3</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="grid">
+
+      <!-- Robinhood -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">🏹</div>
+          <div class="card-meta">
+            <div class="platform">Crypto Trading</div>
+            <div class="card-name">Robinhood</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">40 € en cryptomonnaie</div>
+        <div class="condition">Pour un dépôt de seulement 20 €</div>
+        <div class="desc">Créez votre compte via le lien, vérifiez votre identité et déposez 20 € pour commencer à trader et recevoir 40 € en crypto.</div>
+        <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
+        <div class="tip"><strong>💡</strong> Le dépôt de 20 € est récupérable instantanément après réception du bonus.</div>
+        <div class="actions">
+          <a class="cta" href="https://join.robinhood.com/eu_crypto/zakaryb-669e1e/?locale=fr-FR" target="_blank" rel="noopener">Utiliser ce lien</a>
+        </div>
+      </div>
+
+      <!-- OKX -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">⭕</div>
+          <div class="card-meta">
+            <div class="platform">Exchange Crypto</div>
+            <div class="card-name">OKX</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">Jusqu'à 250 €</div>
+        <div class="condition">En récompenses de bienvenue — dépôt 200 € requis</div>
+        <div class="desc">Inscrivez-vous avec le code, vérifiez votre identité, déposez au moins 200 € en liquidités ou achetez 200 € en crypto. Vos amis ont 14 jours pour tout compléter.</div>
+        <div class="code-row">
+          <div class="code-left">
+            <div class="code-label">Code parrainage</div>
+            <div class="code-value">81371027</div>
+          </div>
+          <button class="copy-btn" onclick="copyCode('81371027', this)">Copier</button>
+        </div>
+        <div class="actions">
+          <a class="cta cta-ghost" href="https://my.okx.com/fr-fr/join/81371027" target="_blank" rel="noopener">Utiliser ce lien</a>
+        </div>
+      </div>
+
+      <!-- Kraken -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">🦑</div>
+          <div class="card-meta">
+            <div class="platform">Exchange Crypto</div>
+            <div class="card-name">Kraken</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">Jusqu'à 100 € chacun</div>
+        <div class="condition">Parrain et filleul reçoivent tous les deux une récompense</div>
+        <div class="desc">Rejoignez Kraken via le lien ou le code de parrainage et nous recevons tous les deux jusqu'à 100 € en récompenses crypto.</div>
+        <div class="code-row">
+          <div class="code-left">
+            <div class="code-label">Code parrainage</div>
+            <div class="code-value">rfrycbkj</div>
+          </div>
+          <button class="copy-btn" onclick="copyCode('rfrycbkj', this)">Copier</button>
+        </div>
+        <div class="actions">
+          <a class="cta cta-ghost" href="https://www.kraken.com/sign-up?inviteCode=j3g4ypbt" target="_blank" rel="noopener">Utiliser ce lien</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ REWARDS ══ -->
+  <section class="section" id="rewards">
+    <div class="section-header">
+      <div class="section-icon green">🎮</div>
+      <div class="section-info">
+        <div class="section-label">Catégorie</div>
+        <div class="section-name">Earn &amp; Rewards</div>
+      </div>
+      <div class="section-line"></div>
+    </div>
+    <div class="grid">
+
+      <!-- Scrambly -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">🎮</div>
+          <div class="card-meta">
+            <div class="platform">Earn &amp; Rewards</div>
+            <div class="card-name">Scrambly</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="reward">5 000 coins (~5 $)</div>
+        <div class="condition">+ 10% des gains de vos filleuls à vie</div>
+        <div class="desc">Inscrivez-vous sur Scrambly et recevez 5 000 coins de bienvenue. En parrainant, gagnez 10% des récompenses de vos filleuls de façon <strong>permanente</strong>.</div>
+        <div class="code-row">
+          <div class="code-left">
+            <div class="code-label">Code parrainage</div>
+            <div class="code-value">4X2H09A</div>
+          </div>
+          <button class="copy-btn" onclick="copyCode('4X2H09A', this)">Copier</button>
+        </div>
+        <div class="actions">
+          <a class="cta cta-ghost" href="https://scrambly.io" target="_blank" rel="noopener">Voir l'offre</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>⚠️ Avertissement</strong> — Les montants et conditions des offres de parrainage peuvent changer à tout moment. Vérifiez toujours les conditions officielles sur le site de chaque plateforme avant de vous inscrire. Les investissements en crypto-monnaies comportent des <strong>risques de perte en capital</strong>.
+  </div>
+
+</main>
+
+<!-- ══ NEWSLETTER ══ -->
+<div class="newsletter-section">
+  <div class="newsletter-box">
+    <span class="newsletter-icon">📬</span>
+    <div class="newsletter-tag">Alertes offres</div>
+    <h2 class="newsletter-title">Ne ratez aucune <span>nouvelle offre</span></h2>
+    <p class="newsletter-desc">Inscrivez-vous pour recevoir en avant-première toutes les nouvelles offres de parrainage dès leur publication.</p>
+
+    <form class="newsletter-form" id="nlForm" action="https://formspree.io/f/VOTRE_ID" method="POST">
+      <input
+        class="newsletter-input"
+        type="email"
+        name="email"
+        placeholder="Votre adresse email..."
+        required
+        autocomplete="email"
+      />
+      <button class="newsletter-btn" type="submit" id="nlBtn">S'inscrire 🔔</button>
+    </form>
+
+    <div class="newsletter-success" id="nlSuccess">
+      ✅ Inscrit ! Vous recevrez les prochaines offres en avant-première.
+    </div>
+
+    <div class="newsletter-perks">
+      <div class="perk p1">Alertes immédiates</div>
+      <div class="perk p2">Offres exclusives</div>
+      <div class="perk p3">Aucun spam</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SOCIAL ══ -->
+<div class="social-section">
+  <div class="social-title">Suivez-nous pour ne rater aucune offre</div>
+  <div class="social-handle">@Wrld_zak</div>
+  <div class="socials">
+    <a href="https://www.instagram.com/Wrld_zak" class="social-btn ig" target="_blank" rel="noopener">📸 Instagram</a>
+    <a href="https://www.tiktok.com/@Wrld_zak" class="social-btn tk" target="_blank" rel="noopener">🎵 TikTok</a>
+    <a href="https://www.snapchat.com/@wrld_zak" class="social-btn sc" target="_blank" rel="noopener">👻 Snapchat</a>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  © 2026 <span class="brand">ParrainageHub</span> · @Wrld_zak · Mis à jour en avril 2026
+</footer>
+
+<script>
+  function copyCode(code, btn) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(code).then(() => confirm(btn));
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = code;
+      ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); confirm(btn); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  function confirm(btn) {
+    btn.textContent = '✓ Copié !';
+    btn.classList.add('copied');
+    showToast();
+    setTimeout(() => {
+      btn.textContent = 'Copier';
+      btn.classList.remove('copied');
+    }, 2200);
+  }
+
+  function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // Newsletter form
+  document.getElementById('nlForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('nlBtn');
+    btn.textContent = 'Envoi...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        this.style.display = 'none';
+        document.getElementById('nlSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Erreur, réessayez';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Erreur, réessayez';
+      btn.disabled = false;
+    }
+  });
+
+  // Sticky nav active highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav.nav a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`nav.nav a[href="#${e.target.id}"]`);
+        if (active) {
+          active.classList.add('active');
+          active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
