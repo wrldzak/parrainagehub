@@ -77,7 +77,18 @@
   <!-- Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23f97316'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='13' fill='white'>PH</text></svg>" />
 
+  <!-- Meta mobile & PWA -->
+  <meta name="theme-color" content="#f97316" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ParrainageHub" />
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="preconnect" href="https://api.web3forms.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1665,7 +1676,7 @@
 
       <!-- Fortuneo -->
       <div class="card" id="fortuneo">
-        <button class="share-btn" onclick="shareOffer('fortuneo')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('fortuneo')" aria-label="Partager le lien Fortuneo">🔗</button>
         <div class="card-badge badge-best">⭐ Meilleure offre</div>
         <div class="card-top">
           <div class="card-icon-wrap">🍊</div>
@@ -1687,16 +1698,16 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">14085681</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('14085681', this); gtag('event','copie_code',{plateforme:'Fortuneo',type:'code'})">Copier</button>
+          <button class="copy-btn" onclick="copyCode('14085681', this); gtag('event','copie_code',{plateforme:'Fortuneo',type:'code'})" aria-label="Copier le code Fortuneo">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://www.fortuneo.fr" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Fortuneo',type:'lien'})">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://www.fortuneo.fr" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Fortuneo',type:'lien'})" aria-label="Utiliser le lien de parrainage Fortuneo">Utiliser ce lien</a>
         </div>
       </div>
 
       <!-- N26 -->
       <div class="card" id="n26">
-        <button class="share-btn" onclick="shareOffer('n26')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('n26')" aria-label="Partager le lien N26">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">🌿</div>
           <div class="card-meta">
@@ -1718,16 +1729,16 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">zakarysb07305c</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('zakarysb07305c', this); gtag('event','copie_code',{plateforme:'N26',type:'code'})">Copier</button>
+          <button class="copy-btn" onclick="copyCode('zakarysb07305c', this); gtag('event','copie_code',{plateforme:'N26',type:'code'})" aria-label="Copier le code N26">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://n26.com/fr-fr" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'N26',type:'lien'})">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://n26.com/fr-fr" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'N26',type:'lien'})" aria-label="Utiliser le lien de parrainage N26">Utiliser ce lien</a>
         </div>
       </div>
 
       <!-- Revolut -->
       <div class="card" id="revolut">
-        <button class="share-btn" onclick="shareOffer('revolut')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('revolut')" aria-label="Partager le lien Revolut">🔗</button>
         <div class="card-badge badge-hot">🔥 Populaire</div>
         <div class="card-top">
           <div class="card-icon-wrap">💳</div>
@@ -1746,7 +1757,7 @@
         <div class="desc">Ouvrez un compte Revolut via le lien, vérifiez votre identité, ajoutez de l'argent, effectuez 3 achats de 5 € minimum et commandez une carte physique.</div>
         <div class="tip"><strong>💡 Astuce :</strong> Faites un achat de 5 € en magasin puis demandez un remboursement en caisse — votre mise est récupérée et les conditions sont remplies !</div>
         <div class="actions">
-          <a class="cta" href="https://www.revolut.com/fr-FR/referral/?referral-code=zakaryoepj%21APR1-26-VR-FR" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Revolut',type:'lien'})">Utiliser ce lien</a>
+          <a class="cta" href="https://www.revolut.com/fr-FR/referral/?referral-code=zakaryoepj%21APR1-26-VR-FR" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Revolut',type:'lien'})" aria-label="Utiliser le lien de parrainage Revolut">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1767,7 +1778,7 @@
 
       <!-- Trade 212 -->
       <div class="card" id="trade212">
-        <button class="share-btn" onclick="shareOffer('trade212')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('trade212')" aria-label="Partager le lien Trade 212">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">📊</div>
           <div class="card-meta">
@@ -1786,7 +1797,7 @@
         <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
         <div class="tip"><strong>💡</strong> Le dépôt de 10 € est récupérable instantanément après validation.</div>
         <div class="actions">
-          <a class="cta" href="https://www.trading212.com/fr/invite/4DtCsYMcP9k" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Trade212',type:'lien'})">Utiliser ce lien</a>
+          <a class="cta" href="https://www.trading212.com/fr/invite/4DtCsYMcP9k" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Trade212',type:'lien'})" aria-label="Utiliser le lien de parrainage Trade 212">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1807,7 +1818,7 @@
 
       <!-- Robinhood -->
       <div class="card" id="robinhood">
-        <button class="share-btn" onclick="shareOffer('robinhood')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('robinhood')" aria-label="Partager le lien Robinhood">🔗</button>
         <div class="card-badge badge-new">🆕 Nouveau</div>
         <div class="card-top">
           <div class="card-icon-wrap">🏹</div>
@@ -1827,13 +1838,13 @@
         <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
         <div class="tip"><strong>💡</strong> Le dépôt de 20 € est récupérable instantanément après réception du bonus.</div>
         <div class="actions">
-          <a class="cta" href="https://join.robinhood.com/eu_crypto/zakaryb-669e1e/?locale=fr-FR" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Robinhood',type:'lien'})">Utiliser ce lien</a>
+          <a class="cta" href="https://join.robinhood.com/eu_crypto/zakaryb-669e1e/?locale=fr-FR" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Robinhood',type:'lien'})" aria-label="Utiliser le lien de parrainage Robinhood">Utiliser ce lien</a>
         </div>
       </div>
 
       <!-- OKX -->
       <div class="card" id="okx">
-        <button class="share-btn" onclick="shareOffer('okx')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('okx')" aria-label="Partager le lien OKX">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">⭕</div>
           <div class="card-meta">
@@ -1854,16 +1865,16 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">81371027</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('81371027', this); gtag('event','copie_code',{plateforme:'OKX',type:'code'})">Copier</button>
+          <button class="copy-btn" onclick="copyCode('81371027', this); gtag('event','copie_code',{plateforme:'OKX',type:'code'})" aria-label="Copier le code OKX">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://my.okx.com/fr-fr/join/81371027" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'OKX',type:'lien'})">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://my.okx.com/fr-fr/join/81371027" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'OKX',type:'lien'})" aria-label="Utiliser le lien de parrainage OKX">Utiliser ce lien</a>
         </div>
       </div>
 
       <!-- Kraken -->
       <div class="card" id="kraken">
-        <button class="share-btn" onclick="shareOffer('kraken')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('kraken')" aria-label="Partager le lien Kraken">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">🦑</div>
           <div class="card-meta">
@@ -1884,10 +1895,10 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">rfrycbkj</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('rfrycbkj', this); gtag('event','copie_code',{plateforme:'Kraken',type:'code'})">Copier</button>
+          <button class="copy-btn" onclick="copyCode('rfrycbkj', this); gtag('event','copie_code',{plateforme:'Kraken',type:'code'})" aria-label="Copier le code Kraken">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://www.kraken.com/sign-up?inviteCode=j3g4ypbt" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Kraken',type:'lien'})">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://www.kraken.com/sign-up?inviteCode=j3g4ypbt" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Kraken',type:'lien'})" aria-label="Utiliser le lien de parrainage Kraken">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1908,7 +1919,7 @@
 
       <!-- Scrambly -->
       <div class="card" id="scrambly">
-        <button class="share-btn" onclick="shareOffer('scrambly')" title="Copier le lien">🔗</button>
+        <button class="share-btn" onclick="shareOffer('scrambly')" aria-label="Partager le lien Scrambly">🔗</button>
         <div class="card-badge badge-new">🆕 Nouveau</div>
         <div class="card-top">
           <div class="card-icon-wrap">🎮</div>
@@ -1930,10 +1941,10 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">4X2H09A</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('4X2H09A', this); gtag('event','copie_code',{plateforme:'Scrambly',type:'code'})">Copier</button>
+          <button class="copy-btn" onclick="copyCode('4X2H09A', this); gtag('event','copie_code',{plateforme:'Scrambly',type:'code'})" aria-label="Copier le code Scrambly">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://scrambly.io" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Scrambly',type:'lien'})">Voir l'offre</a>
+          <a class="cta cta-ghost" href="https://scrambly.io" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Scrambly',type:'lien'})" aria-label="Voir l'offre Scrambly">Voir l'offre</a>
         </div>
       </div>
 
@@ -2026,6 +2037,11 @@
 </footer>
 
 <script>
+  // ── SERVICE WORKER ──
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  }
+
   // ── THEME TOGGLE ──
   const html = document.documentElement;
   const toggleBtn = document.getElementById('theme-toggle');
