@@ -1211,6 +1211,94 @@
 
     footer .brand { color: var(--accent); font-weight: 800; }
 
+    /* ── PROGRESS BAR ── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+      z-index: 9999;
+      transition: width .1s linear;
+    }
+
+    /* ── BACK TO TOP ── */
+    #back-top {
+      position: fixed;
+      bottom: 28px; right: 20px;
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--accent), #fb923c);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(249,115,22,.4);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .3s, transform .3s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+      z-index: 998;
+    }
+
+    #back-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    #back-top:hover { box-shadow: 0 6px 28px rgba(249,115,22,.6); transform: translateY(-3px); }
+
+    /* ── SHARE BUTTON ── */
+    .share-btn {
+      position: absolute;
+      top: 14px; left: 14px;
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s;
+      z-index: 2;
+    }
+
+    .share-btn:hover { background: rgba(249,115,22,.15); border-color: var(--accent); color: var(--accent); }
+
+    /* ── WHATSAPP ── */
+    .whatsapp-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 15px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: all .2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,.3);
+    }
+
+    .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,.45); }
+
     /* ── TOAST ── */
     #toast {
       position: fixed;
@@ -1249,6 +1337,8 @@
 </head>
 <body>
 
+<div id="progress-bar"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
 <div id="toast">✓ Code copié !</div>
 
 <!-- ══ HEADER ══ -->
@@ -1405,7 +1495,8 @@
     <div class="grid">
 
       <!-- Fortuneo -->
-      <div class="card">
+      <div class="card" id="fortuneo">
+        <button class="share-btn" onclick="shareOffer('fortuneo')" title="Copier le lien">🔗</button>
         <div class="card-badge badge-best">⭐ Meilleure offre</div>
         <div class="card-top">
           <div class="card-icon-wrap">🍊</div>
@@ -1435,7 +1526,8 @@
       </div>
 
       <!-- N26 -->
-      <div class="card">
+      <div class="card" id="n26">
+        <button class="share-btn" onclick="shareOffer('n26')" title="Copier le lien">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">🌿</div>
           <div class="card-meta">
@@ -1465,7 +1557,8 @@
       </div>
 
       <!-- Revolut -->
-      <div class="card">
+      <div class="card" id="revolut">
+        <button class="share-btn" onclick="shareOffer('revolut')" title="Copier le lien">🔗</button>
         <div class="card-badge badge-hot">🔥 Populaire</div>
         <div class="card-top">
           <div class="card-icon-wrap">💳</div>
@@ -1504,7 +1597,8 @@
     <div class="grid">
 
       <!-- Trade 212 -->
-      <div class="card">
+      <div class="card" id="trade212">
+        <button class="share-btn" onclick="shareOffer('trade212')" title="Copier le lien">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">📊</div>
           <div class="card-meta">
@@ -1543,7 +1637,8 @@
     <div class="grid">
 
       <!-- Robinhood -->
-      <div class="card">
+      <div class="card" id="robinhood">
+        <button class="share-btn" onclick="shareOffer('robinhood')" title="Copier le lien">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">🏹</div>
           <div class="card-meta">
@@ -1567,7 +1662,8 @@
       </div>
 
       <!-- OKX -->
-      <div class="card">
+      <div class="card" id="okx">
+        <button class="share-btn" onclick="shareOffer('okx')" title="Copier le lien">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">⭕</div>
           <div class="card-meta">
@@ -1596,7 +1692,8 @@
       </div>
 
       <!-- Kraken -->
-      <div class="card">
+      <div class="card" id="kraken">
+        <button class="share-btn" onclick="shareOffer('kraken')" title="Copier le lien">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">🦑</div>
           <div class="card-meta">
@@ -1640,7 +1737,8 @@
     <div class="grid">
 
       <!-- Scrambly -->
-      <div class="card">
+      <div class="card" id="scrambly">
+        <button class="share-btn" onclick="shareOffer('scrambly')" title="Copier le lien">🔗</button>
         <div class="card-top">
           <div class="card-icon-wrap">🎮</div>
           <div class="card-meta">
@@ -1677,6 +1775,14 @@
   </div>
 
 </main>
+
+<!-- ══ WHATSAPP ══ -->
+<div class="whatsapp-section">
+  <a class="whatsapp-btn" href="https://wa.me/?text=Gagne%20jusqu%27%C3%A0%20750%E2%82%AC%20avec%20ces%20codes%20parrainage%20exclusifs%20%F0%9F%91%89%20https%3A%2F%2Fparrainagehub.com" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Partager sur WhatsApp 💬
+  </a>
+</div>
 
 <!-- ══ NEWSLETTER ══ -->
 <div class="newsletter-section">
@@ -1723,6 +1829,40 @@
 </footer>
 
 <script>
+  // Progress bar + back to top
+  const progressBar = document.getElementById('progress-bar');
+  const backTop = document.getElementById('back-top');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+    scrollTop > 300 ? backTop.classList.add('visible') : backTop.classList.remove('visible');
+  }, { passive: true });
+
+  // Share offer link
+  function shareOffer(id) {
+    const url = 'https://parrainagehub.com/#' + id;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(() => showShareToast());
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); showShareToast(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  function showShareToast() {
+    const t = document.getElementById('toast');
+    t.textContent = '🔗 Lien copié !';
+    t.classList.add('show');
+    setTimeout(() => { t.classList.remove('show'); t.textContent = '✓ Code copié !'; }, 2500);
+  }
+
   // Animated counter
   function animateCounter(el, target, duration) {
     let start = 0;
