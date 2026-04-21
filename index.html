@@ -62,6 +62,17 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-SB85FLGE6D');
+    // Scroll depth tracking
+    let scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+    window.addEventListener('scroll', () => {
+      const pct = Math.round(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100);
+      [25, 50, 75, 100].forEach(m => {
+        if (!scrollMarks[m] && pct >= m) {
+          scrollMarks[m] = true;
+          gtag('event', 'scroll_depth', { depth: m });
+        }
+      });
+    }, { passive: true });
   </script>
   <!-- Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23f97316'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='13' fill='white'>PH</text></svg>" />
@@ -1676,10 +1687,10 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">14085681</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('14085681', this)">Copier</button>
+          <button class="copy-btn" onclick="copyCode('14085681', this); gtag('event','copie_code',{plateforme:'Fortuneo',type:'code'})">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://www.fortuneo.fr" target="_blank" rel="noopener">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://www.fortuneo.fr" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Fortuneo',type:'lien'})">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1707,10 +1718,10 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">zakarysb07305c</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('zakarysb07305c', this)">Copier</button>
+          <button class="copy-btn" onclick="copyCode('zakarysb07305c', this); gtag('event','copie_code',{plateforme:'N26',type:'code'})">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://n26.com/fr-fr" target="_blank" rel="noopener">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://n26.com/fr-fr" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'N26',type:'lien'})">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1735,7 +1746,7 @@
         <div class="desc">Ouvrez un compte Revolut via le lien, vérifiez votre identité, ajoutez de l'argent, effectuez 3 achats de 5 € minimum et commandez une carte physique.</div>
         <div class="tip"><strong>💡 Astuce :</strong> Faites un achat de 5 € en magasin puis demandez un remboursement en caisse — votre mise est récupérée et les conditions sont remplies !</div>
         <div class="actions">
-          <a class="cta" href="https://www.revolut.com/fr-FR/referral/?referral-code=zakaryoepj%21APR1-26-VR-FR" target="_blank" rel="noopener">Utiliser ce lien</a>
+          <a class="cta" href="https://www.revolut.com/fr-FR/referral/?referral-code=zakaryoepj%21APR1-26-VR-FR" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Revolut',type:'lien'})">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1775,7 +1786,7 @@
         <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
         <div class="tip"><strong>💡</strong> Le dépôt de 10 € est récupérable instantanément après validation.</div>
         <div class="actions">
-          <a class="cta" href="https://www.trading212.com/fr/invite/4DtCsYMcP9k" target="_blank" rel="noopener">Utiliser ce lien</a>
+          <a class="cta" href="https://www.trading212.com/fr/invite/4DtCsYMcP9k" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Trade212',type:'lien'})">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1816,7 +1827,7 @@
         <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
         <div class="tip"><strong>💡</strong> Le dépôt de 20 € est récupérable instantanément après réception du bonus.</div>
         <div class="actions">
-          <a class="cta" href="https://join.robinhood.com/eu_crypto/zakaryb-669e1e/?locale=fr-FR" target="_blank" rel="noopener">Utiliser ce lien</a>
+          <a class="cta" href="https://join.robinhood.com/eu_crypto/zakaryb-669e1e/?locale=fr-FR" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Robinhood',type:'lien'})">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1843,10 +1854,10 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">81371027</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('81371027', this)">Copier</button>
+          <button class="copy-btn" onclick="copyCode('81371027', this); gtag('event','copie_code',{plateforme:'OKX',type:'code'})">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://my.okx.com/fr-fr/join/81371027" target="_blank" rel="noopener">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://my.okx.com/fr-fr/join/81371027" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'OKX',type:'lien'})">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1873,10 +1884,10 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">rfrycbkj</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('rfrycbkj', this)">Copier</button>
+          <button class="copy-btn" onclick="copyCode('rfrycbkj', this); gtag('event','copie_code',{plateforme:'Kraken',type:'code'})">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://www.kraken.com/sign-up?inviteCode=j3g4ypbt" target="_blank" rel="noopener">Utiliser ce lien</a>
+          <a class="cta cta-ghost" href="https://www.kraken.com/sign-up?inviteCode=j3g4ypbt" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Kraken',type:'lien'})">Utiliser ce lien</a>
         </div>
       </div>
 
@@ -1919,10 +1930,10 @@
             <div class="code-label">Code parrainage</div>
             <div class="code-value">4X2H09A</div>
           </div>
-          <button class="copy-btn" onclick="copyCode('4X2H09A', this)">Copier</button>
+          <button class="copy-btn" onclick="copyCode('4X2H09A', this); gtag('event','copie_code',{plateforme:'Scrambly',type:'code'})">Copier</button>
         </div>
         <div class="actions">
-          <a class="cta cta-ghost" href="https://scrambly.io" target="_blank" rel="noopener">Voir l'offre</a>
+          <a class="cta cta-ghost" href="https://scrambly.io" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Scrambly',type:'lien'})">Voir l'offre</a>
         </div>
       </div>
 
@@ -1938,7 +1949,7 @@
 
 <!-- ══ WHATSAPP ══ -->
 <div class="whatsapp-section">
-  <a class="whatsapp-btn" href="https://wa.me/?text=Gagne%20jusqu%27%C3%A0%20750%E2%82%AC%20avec%20ces%20codes%20parrainage%20exclusifs%20%F0%9F%91%89%20https%3A%2F%2Fparrainagehub.com" target="_blank" rel="noopener">
+  <a class="whatsapp-btn" href="https://wa.me/?text=Gagne%20jusqu%27%C3%A0%20750%E2%82%AC%20avec%20ces%20codes%20parrainage%20exclusifs%20%F0%9F%91%89%20https%3A%2F%2Fparrainagehub.com" target="_blank" rel="noopener" onclick="gtag('event','partage_whatsapp')">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     Partager sur WhatsApp 💬
   </a>
