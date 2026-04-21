@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>ParrainageHub · @Wrld_zak</title>
-  <meta name="description" content="Codes et liens de parrainage exclusifs — banques, crypto, trading. Gagnez jusqu'à 250 € en vous inscrivant." />
+  <title>ParrainageHub — Codes parrainage exclusifs | Jusqu'à 750€</title>
+  <meta name="description" content="Codes et liens de parrainage exclusifs — Gagnez jusqu'à 750€ avec ParrainageHub. Fortuneo, Revolut, N26, Kraken, OKX et plus." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ParrainageHub — Codes parrainage exclusifs | Jusqu'à 750€" />
+  <meta property="og:description" content="Codes et liens de parrainage exclusifs — Gagnez jusqu'à 750€ avec ParrainageHub. Fortuneo, Revolut, N26, Kraken, OKX et plus." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wrldzak.github.io/parrainagehub/" />
+  <meta property="og:image" content="https://wrldzak.github.io/parrainagehub/og.png" />
+  <meta property="og:site_name" content="ParrainageHub" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ParrainageHub — Codes parrainage exclusifs | Jusqu'à 750€" />
+  <meta name="twitter:description" content="Codes et liens de parrainage exclusifs — Gagnez jusqu'à 750€ avec ParrainageHub." />
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SB85FLGE6D"></script>
   <script>
@@ -35,9 +47,7 @@
       --radius: 18px;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -49,7 +59,6 @@
       width: 100%;
     }
 
-    /* ── ANIMATED BG ── */
     body::before {
       content: '';
       position: fixed;
@@ -61,13 +70,12 @@
         radial-gradient(ellipse 50% 60% at 50% 50%, rgba(6,182,212,.04) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
-      overflow: hidden;
     }
 
     /* ── HEADER ── */
     header {
       text-align: center;
-      padding: 70px 20px 30px;
+      padding: 60px 20px 30px;
       position: relative;
       z-index: 1;
     }
@@ -81,7 +89,6 @@
       height: 500px;
       background: radial-gradient(ellipse at 50% 20%, rgba(249,115,22,.22) 0%, transparent 65%);
       pointer-events: none;
-      overflow: hidden;
     }
 
     .live-badge {
@@ -95,7 +102,7 @@
       border-radius: 999px;
       font-size: 12px;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       letter-spacing: .6px;
       text-transform: uppercase;
     }
@@ -112,12 +119,31 @@
       50% { box-shadow: 0 0 0 6px rgba(249,115,22,0); }
     }
 
+    /* ── LOGO ── */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 20px rgba(249,115,22,.35);
+      flex-shrink: 0;
+    }
+
     h1 {
       font-size: clamp(2.4rem, 6vw, 4rem);
       font-weight: 900;
       letter-spacing: -2px;
       line-height: 1.05;
-      margin-bottom: 6px;
     }
 
     h1 .brand-plain { color: var(--text); }
@@ -131,7 +157,7 @@
 
     .subtitle {
       color: var(--muted);
-      margin-top: 14px;
+      margin-top: 12px;
       font-size: 15px;
       max-width: 500px;
       margin-inline: auto;
@@ -145,8 +171,8 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 0;
-      margin: 36px auto 0;
-      max-width: 600px;
+      margin: 28px auto 0;
+      max-width: 640px;
       background: var(--card);
       border: 1px solid var(--border2);
       border-radius: var(--radius);
@@ -196,7 +222,7 @@
       flex-wrap: nowrap;
       gap: 6px;
       padding: 12px 20px;
-      background: rgba(8,8,11,.85);
+      background: rgba(8,8,11,.88);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border2);
@@ -220,22 +246,13 @@
       flex-shrink: 0;
     }
 
-    nav.nav a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(249,115,22,.1);
-    }
-
-    nav.nav a.active {
+    nav.nav a:hover, nav.nav a.active {
       border-color: var(--accent);
       color: var(--accent);
       background: rgba(249,115,22,.12);
     }
 
-    /* offset anchors so sticky nav doesn't cover them */
-    section[id], #bonus {
-      scroll-margin-top: 62px;
-    }
+    section[id], #bonus, #how { scroll-margin-top: 62px; }
 
     /* ── MAIN ── */
     main {
@@ -246,14 +263,132 @@
       z-index: 1;
     }
 
-    /* ── BONUS 10e FILLEUL ── */
+    /* ── COUNTER BANNER ── */
+    .counter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(34,197,94,.08), rgba(249,115,22,.08));
+      border: 1px solid rgba(34,197,94,.2);
+      border-radius: 14px;
+      padding: 14px 24px;
+      margin-bottom: 32px;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .counter-icon { font-size: 20px; }
+
+    .counter-text {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .counter-num {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .counter-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      margin-bottom: 56px;
+    }
+
+    .how-title {
+      text-align: center;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-weight: 900;
+      letter-spacing: -.5px;
+      margin-bottom: 8px;
+    }
+
+    .how-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .how-step {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .how-step:hover {
+      transform: translateY(-3px);
+      border-color: var(--border2);
+    }
+
+    .how-step::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .how-step:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), #fb923c); }
+    .how-step:nth-child(2)::before { background: linear-gradient(90deg, var(--accent2), #c084fc); }
+    .how-step:nth-child(3)::before { background: linear-gradient(90deg, var(--green), #4ade80); }
+
+    .how-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      margin: 0 auto 12px;
+    }
+
+    .how-step:nth-child(1) .how-num { background: rgba(249,115,22,.15); color: var(--accent); }
+    .how-step:nth-child(2) .how-num { background: rgba(168,85,247,.15); color: var(--accent2); }
+    .how-step:nth-child(3) .how-num { background: rgba(34,197,94,.15); color: var(--green); }
+
+    .how-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+
+    .how-step-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .how-step-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── BONUS BANNER ── */
     .bonus-banner {
       position: relative;
       background: linear-gradient(135deg, #1a0a2e 0%, #0f1a0a 50%, #1a0f00 100%);
       border: 1px solid transparent;
       border-radius: 24px;
       padding: 40px 36px;
-      margin-bottom: 64px;
+      margin-bottom: 56px;
       overflow: hidden;
       text-align: center;
     }
@@ -275,21 +410,16 @@
       content: '';
       position: absolute;
       inset: -50%;
-      background: radial-gradient(ellipse at 50% 50%, rgba(168,85,247,.12) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(168,85,247,.1) 0%, transparent 60%);
       pointer-events: none;
     }
 
-    .bonus-sparkles {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+    .bonus-sparkles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 
     .sparkle {
       position: absolute;
       font-size: 20px;
-      opacity: .25;
+      opacity: .2;
       animation: float 4s ease-in-out infinite;
     }
 
@@ -301,13 +431,13 @@
     .sparkle:nth-child(6) { top: 50%; right: 2%; animation-delay: .35s; }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: .2; }
-      50% { transform: translateY(-10px) rotate(15deg); opacity: .4; }
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: .15; }
+      50% { transform: translateY(-10px) rotate(15deg); opacity: .35; }
     }
 
     .bonus-icon {
       font-size: 52px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: block;
       filter: drop-shadow(0 0 20px rgba(245,158,11,.5));
       animation: iconPulse 2s ease-in-out infinite;
@@ -331,7 +461,7 @@
       text-transform: uppercase;
       padding: 5px 14px;
       border-radius: 999px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .bonus-title {
@@ -353,19 +483,17 @@
       font-size: 15px;
       color: #c4b5fd;
       max-width: 520px;
-      margin: 0 auto 28px;
+      margin: 0 auto 24px;
       line-height: 1.7;
     }
 
     .bonus-desc strong { color: #fde047; }
 
-    /* Steps */
     .bonus-steps {
       display: flex;
       justify-content: center;
-      gap: 0;
       flex-wrap: wrap;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .step {
@@ -373,15 +501,14 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      padding: 16px 20px;
+      padding: 14px 18px;
       position: relative;
     }
 
     .step + .step::before {
       content: '→';
       position: absolute;
-      left: -8px;
-      top: 50%;
+      left: -8px; top: 50%;
       transform: translateY(-50%);
       color: var(--muted);
       font-size: 16px;
@@ -407,6 +534,57 @@
       max-width: 90px;
     }
 
+    /* Témoignages */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testi {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+      text-align: left;
+    }
+
+    .testi-text {
+      font-size: 12px;
+      color: #c4b5fd;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    .testi-author {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .testi-stars { color: #fbbf24; font-size: 10px; margin-bottom: 4px; }
+
+    .bonus-proof-box {
+      background: rgba(6,182,212,.08);
+      border: 1px solid rgba(6,182,212,.22);
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #a5f3fc;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 22px;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bonus-proof-box strong { color: #67e8f9; }
+
     .bonus-cta {
       display: inline-flex;
       align-items: center;
@@ -420,42 +598,28 @@
       text-decoration: none;
       transition: all .2s;
       box-shadow: 0 4px 24px rgba(245,158,11,.35);
+      position: relative;
+      z-index: 1;
     }
 
-    .bonus-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(245,158,11,.5);
-    }
+    .bonus-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,158,11,.5); }
 
     .bonus-note {
       font-size: 12px;
       color: var(--muted);
       margin-top: 14px;
+      position: relative;
+      z-index: 1;
     }
-
-    .bonus-proof-box {
-      background: rgba(6,182,212,.08);
-      border: 1px solid rgba(6,182,212,.25);
-      border-radius: 14px;
-      padding: 16px 20px;
-      font-size: 13px;
-      color: #a5f3fc;
-      line-height: 1.7;
-      max-width: 480px;
-      margin: 0 auto 24px;
-      text-align: left;
-    }
-
-    .bonus-proof-box strong { color: #67e8f9; }
 
     /* ── SECTION ── */
-    .section { margin-bottom: 64px; }
+    .section { margin-bottom: 60px; }
 
     .section-header {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .section-icon {
@@ -511,8 +675,8 @@
       padding: 26px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      transition: transform .25s, border-color .25s, box-shadow .25s;
+      gap: 12px;
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1), border-color .25s, box-shadow .25s;
       position: relative;
       overflow: hidden;
     }
@@ -527,9 +691,32 @@
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(249,115,22,.4);
-      box-shadow: 0 12px 40px rgba(249,115,22,.12), 0 0 0 1px rgba(249,115,22,.08);
+      transform: translateY(-7px) scale(1.01);
+      border-color: rgba(249,115,22,.45);
+      box-shadow: 0 16px 48px rgba(249,115,22,.15), 0 0 0 1px rgba(249,115,22,.1);
+    }
+
+    /* ── CARD BADGES ── */
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      z-index: 2;
+    }
+
+    .badge-best {
+      background: linear-gradient(135deg, var(--gold), #fbbf24);
+      color: #000;
+    }
+
+    .badge-hot {
+      background: linear-gradient(135deg, #ef4444, #f97316);
+      color: #fff;
     }
 
     .card-top {
@@ -571,7 +758,7 @@
     .divider {
       height: 1px;
       background: var(--border);
-      margin: -4px 0;
+      margin: -2px 0;
     }
 
     .reward {
@@ -594,7 +781,27 @@
       font-size: 11px;
       color: var(--muted);
       font-style: italic;
-      margin-top: -6px;
+      margin-top: -4px;
+    }
+
+    /* ── META ROW (difficulté + délai) ── */
+    .card-meta-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      color: var(--muted);
     }
 
     .desc {
@@ -750,11 +957,7 @@
       pointer-events: none;
     }
 
-    .newsletter-icon {
-      font-size: 44px;
-      margin-bottom: 14px;
-      display: block;
-    }
+    .newsletter-icon { font-size: 44px; margin-bottom: 14px; display: block; }
 
     .newsletter-tag {
       display: inline-flex;
@@ -857,7 +1060,6 @@
       font-weight: 500;
     }
 
-    .perk::before { font-size: 13px; }
     .perk.p1::before { content: '🔔'; }
     .perk.p2::before { content: '🎁'; }
     .perk.p3::before { content: '🔒'; }
@@ -875,11 +1077,6 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
-    }
-
-    @media (max-width: 480px) {
-      .newsletter-form { flex-direction: column; }
-      .newsletter-box { padding: 32px 20px; }
     }
 
     /* ── SOCIAL ── */
@@ -900,13 +1097,7 @@
       background: linear-gradient(90deg, transparent, var(--border2), transparent);
     }
 
-    .social-title {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 8px;
-      font-weight: 600;
-      letter-spacing: .3px;
-    }
+    .social-title { font-size: 13px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
 
     .social-handle {
       font-size: 22px;
@@ -919,12 +1110,7 @@
       margin-bottom: 24px;
     }
 
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .socials { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 
     .social-btn {
       display: flex;
@@ -942,7 +1128,6 @@
     }
 
     .social-btn:hover { transform: translateY(-3px); }
-
     .social-btn.ig { border-color: #e1306c; color: #e1306c; background: rgba(225,48,108,.08); }
     .social-btn.ig:hover { background: rgba(225,48,108,.15); box-shadow: 0 4px 20px rgba(225,48,108,.2); }
     .social-btn.tk { border-color: #69c9d0; color: #69c9d0; background: rgba(105,201,208,.08); }
@@ -1007,19 +1192,20 @@
       box-shadow: 0 4px 20px rgba(34,197,94,.4);
     }
 
-    #toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 540px) {
+    @media (max-width: 600px) {
       .grid { grid-template-columns: 1fr; }
       .stats-bar { flex-direction: column; }
       .stat + .stat::before { display: none; }
       .bonus-steps { flex-direction: column; align-items: center; }
       .step + .step::before { display: none; }
-      .bonus-banner { padding: 28px 20px; }
+      .bonus-banner { padding: 28px 18px; }
+      .how-steps { grid-template-columns: 1fr; }
+      .testimonials { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-box { padding: 32px 18px; }
     }
   </style>
 </head>
@@ -1034,12 +1220,21 @@
     <div class="pulse"></div>
     Offres actives · Avril 2026
   </div>
+
+  <div class="logo">
+    <div class="logo-icon">🔗</div>
+  </div>
+
   <h1>
     <span class="brand-plain">Parrainage</span><span class="brand-grad">Hub</span>
   </h1>
-  <p class="subtitle">Codes &amp; liens exclusifs pour gagner jusqu'à <strong>250 €</strong> en ouvrant un compte. Utilisez les offres ci-dessous.</p>
+  <p class="subtitle">Codes &amp; liens exclusifs pour gagner jusqu'à <strong>750 €</strong> en ouvrant un compte. Utilisez les offres ci-dessous.</p>
 
   <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num" id="counter-filleuls">0</div>
+      <div class="stat-label">Filleuls parrainés</div>
+    </div>
     <div class="stat">
       <div class="stat-num">8</div>
       <div class="stat-label">Offres actives</div>
@@ -1057,6 +1252,7 @@
 
 <!-- ══ NAV ══ -->
 <nav class="nav">
+  <a href="#how">💡 Comment ça marche</a>
   <a href="#bonus">🎁 Bonus exclusif</a>
   <a href="#banques">🏦 Banques</a>
   <a href="#trading">📈 Trading</a>
@@ -1067,20 +1263,42 @@
 
 <main>
 
+  <!-- ══ COMMENT ÇA MARCHE ══ -->
+  <section class="section how-section" id="how">
+    <h2 class="how-title">Comment ça marche ?</h2>
+    <p class="how-sub">3 étapes simples pour recevoir vos primes</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <span class="how-emoji">🔗</span>
+        <div class="how-step-title">Choisissez une offre</div>
+        <div class="how-step-desc">Sélectionnez la plateforme qui vous intéresse et cliquez sur "Utiliser ce lien" ou copiez le code.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <span class="how-emoji">📋</span>
+        <div class="how-step-title">Inscrivez-vous</div>
+        <div class="how-step-desc">Créez votre compte via le lien de parrainage et complétez les conditions requises (dépôt, transaction…).</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <span class="how-emoji">💸</span>
+        <div class="how-step-title">Recevez votre prime</div>
+        <div class="how-step-desc">La prime est versée automatiquement sur votre compte une fois les conditions remplies. Simple et rapide !</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ BONUS 10e FILLEUL ══ -->
   <section class="section" id="bonus">
     <div class="bonus-banner">
       <div class="bonus-sparkles">
-        <span class="sparkle">✦</span>
-        <span class="sparkle">★</span>
-        <span class="sparkle">✦</span>
-        <span class="sparkle">★</span>
-        <span class="sparkle">✦</span>
-        <span class="sparkle">★</span>
+        <span class="sparkle">✦</span><span class="sparkle">★</span>
+        <span class="sparkle">✦</span><span class="sparkle">★</span>
+        <span class="sparkle">✦</span><span class="sparkle">★</span>
       </div>
 
       <span class="bonus-icon">🎁</span>
-
       <div class="bonus-tag">✦ Bonus exclusif @Wrld_zak</div>
 
       <h2 class="bonus-title">
@@ -1099,12 +1317,30 @@
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <div class="step-num-arrow"></div>
-          <div class="step-label">Envoie-moi une capture d'écran en preuve</div>
+          <div class="step-label">Envoie une capture d'écran en preuve</div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-label">Si tu es le 10e, tu reçois 50 € cash</div>
+        </div>
+      </div>
+
+      <!-- Témoignages -->
+      <div class="testimonials">
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-text">"Reçu mes 50 € en moins de 24h, sans problème. Merci !"</div>
+          <div class="testi-author">— @lucas_inv</div>
+        </div>
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-text">"Super concept, j'ai aussi gagné mes primes Revolut en même temps."</div>
+          <div class="testi-author">— @marie.s</div>
+        </div>
+        <div class="testi">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-text">"Virement reçu direct sur PayPal, aucun souci. Je recommande !"</div>
+          <div class="testi-author">— @kevin_trades</div>
         </div>
       </div>
 
@@ -1114,7 +1350,6 @@
       </div>
 
       <a href="https://www.instagram.com/Wrld_zak" class="bonus-cta" target="_blank" rel="noopener">M'envoyer un message 💬</a>
-
       <p class="bonus-note">Virement instantané · Valable sur toutes les plateformes du site</p>
     </div>
   </section>
@@ -1133,6 +1368,7 @@
 
       <!-- Fortuneo -->
       <div class="card">
+        <div class="card-badge badge-best">⭐ Meilleure offre</div>
         <div class="card-top">
           <div class="card-icon-wrap">🍊</div>
           <div class="card-meta">
@@ -1143,6 +1379,10 @@
         <div class="divider"></div>
         <div class="reward">Jusqu'à 250 €</div>
         <div class="condition">Cumulable : carte Fosfo · PEA · assurance-vie</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🟢 Facile</span>
+          <span class="meta-pill">⏱ Reçu en 30-60 jours</span>
+        </div>
         <div class="desc">Ouvrez un compte courant avec carte Fosfo (80 €), un PEA (100 €) ou une assurance-vie (70 €). Primes versées après conditions d'utilisation remplies.</div>
         <div class="code-row">
           <div class="code-left">
@@ -1168,6 +1408,10 @@
         <div class="divider"></div>
         <div class="reward">25 € à 75 €</div>
         <div class="condition">Standard 25€ · Smart 40€ · Go 60€ · Metal 75€</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🟢 Facile</span>
+          <span class="meta-pill">⏱ Reçu en 7-14 jours</span>
+        </div>
         <div class="desc">Inscrivez-vous avec le code, ouvrez un compte et effectuez 1 transaction par carte d'au moins 25 €.</div>
         <div class="tip"><strong>💡 Astuce :</strong> Faites un achat de 25 € en magasin puis demandez un remboursement en caisse — votre mise est récupérée et la prime reste acquise !</div>
         <div class="code-row">
@@ -1184,6 +1428,7 @@
 
       <!-- Revolut -->
       <div class="card">
+        <div class="card-badge badge-hot">🔥 Populaire</div>
         <div class="card-top">
           <div class="card-icon-wrap">💳</div>
           <div class="card-meta">
@@ -1194,6 +1439,10 @@
         <div class="divider"></div>
         <div class="reward">Jusqu'à 200 €</div>
         <div class="condition">Cashback sur vos premiers achats</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🟢 Facile</span>
+          <span class="meta-pill">⏱ Reçu en 7-14 jours</span>
+        </div>
         <div class="desc">Ouvrez un compte Revolut via le lien, vérifiez votre identité, ajoutez de l'argent, effectuez 3 achats de 5 € minimum et commandez une carte physique.</div>
         <div class="tip"><strong>💡 Astuce :</strong> Faites un achat de 5 € en magasin puis demandez un remboursement en caisse — votre mise est récupérée et les conditions sont remplies !</div>
         <div class="actions">
@@ -1228,6 +1477,10 @@
         <div class="divider"></div>
         <div class="reward">Action gratuite offerte</div>
         <div class="condition">Valeur aléatoire — dépôt de 10 € requis</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🟡 Moyen</span>
+          <span class="meta-pill">⏱ Reçu en 1-3 jours</span>
+        </div>
         <div class="desc">Inscrivez-vous avec le lien de parrainage, vérifiez votre identité et effectuez un dépôt de 10 € pour recevoir une action gratuite.</div>
         <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
         <div class="tip"><strong>💡</strong> Le dépôt de 10 € est récupérable instantanément après validation.</div>
@@ -1263,6 +1516,10 @@
         <div class="divider"></div>
         <div class="reward">40 € en cryptomonnaie</div>
         <div class="condition">Pour un dépôt de seulement 20 €</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🟡 Moyen</span>
+          <span class="meta-pill">⏱ Reçu en 3-7 jours</span>
+        </div>
         <div class="desc">Créez votre compte via le lien, vérifiez votre identité et déposez 20 € pour commencer à trader et recevoir 40 € en crypto.</div>
         <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
         <div class="tip"><strong>💡</strong> Le dépôt de 20 € est récupérable instantanément après réception du bonus.</div>
@@ -1283,6 +1540,10 @@
         <div class="divider"></div>
         <div class="reward">Jusqu'à 250 €</div>
         <div class="condition">En récompenses de bienvenue — dépôt 200 € requis</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🔴 Avancé</span>
+          <span class="meta-pill">⏱ Reçu en 7-14 jours</span>
+        </div>
         <div class="desc">Inscrivez-vous avec le code, vérifiez votre identité, déposez au moins 200 € en liquidités ou achetez 200 € en crypto. Vos amis ont 14 jours pour tout compléter.</div>
         <div class="code-row">
           <div class="code-left">
@@ -1308,6 +1569,10 @@
         <div class="divider"></div>
         <div class="reward">Jusqu'à 100 € chacun</div>
         <div class="condition">Parrain et filleul reçoivent tous les deux une récompense</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🟡 Moyen</span>
+          <span class="meta-pill">⏱ Reçu en 7-14 jours</span>
+        </div>
         <div class="desc">Rejoignez Kraken via le lien ou le code de parrainage et nous recevons tous les deux jusqu'à 100 € en récompenses crypto.</div>
         <div class="code-row">
           <div class="code-left">
@@ -1348,6 +1613,10 @@
         <div class="divider"></div>
         <div class="reward">5 000 coins (~5 $)</div>
         <div class="condition">+ 10% des gains de vos filleuls à vie</div>
+        <div class="card-meta-row">
+          <span class="meta-pill">🟢 Facile</span>
+          <span class="meta-pill">⏱ Reçu instantanément</span>
+        </div>
         <div class="desc">Inscrivez-vous sur Scrambly et recevez 5 000 coins de bienvenue. En parrainant, gagnez 10% des récompenses de vos filleuls de façon <strong>permanente</strong>.</div>
         <div class="code-row">
           <div class="code-left">
@@ -1383,14 +1652,7 @@
       <input type="hidden" name="access_key" value="6917f1bb-f865-4903-bda7-fd5e713e9cc5" />
       <input type="hidden" name="subject" value="Nouvelle inscription newsletter ParrainageHub" />
       <input type="hidden" name="from_name" value="ParrainageHub" />
-      <input
-        class="newsletter-input"
-        type="email"
-        name="email"
-        placeholder="Votre adresse email..."
-        required
-        autocomplete="email"
-      />
+      <input class="newsletter-input" type="email" name="email" placeholder="Votre adresse email..." required autocomplete="email" />
       <button class="newsletter-btn" type="submit" id="nlBtn">S'inscrire 🔔</button>
     </form>
 
@@ -1423,29 +1685,46 @@
 </footer>
 
 <script>
+  // Animated counter
+  function animateCounter(el, target, duration) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { el.textContent = target; clearInterval(timer); }
+      else el.textContent = Math.floor(start);
+    }, 16);
+  }
+
+  const counterEl = document.getElementById('counter-filleuls');
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      animateCounter(counterEl, 47, 1800);
+      obs.disconnect();
+    }
+  });
+  obs.observe(counterEl);
+
+  // Copy code
   function copyCode(code, btn) {
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(code).then(() => confirm(btn));
+      navigator.clipboard.writeText(code).then(() => confirmCopy(btn));
     } else {
       const ta = document.createElement('textarea');
       ta.value = code;
       ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
       document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      try { document.execCommand('copy'); confirm(btn); } catch(e) {}
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); confirmCopy(btn); } catch(e) {}
       document.body.removeChild(ta);
     }
   }
 
-  function confirm(btn) {
+  function confirmCopy(btn) {
     btn.textContent = '✓ Copié !';
     btn.classList.add('copied');
     showToast();
-    setTimeout(() => {
-      btn.textContent = 'Copier';
-      btn.classList.remove('copied');
-    }, 2200);
+    setTimeout(() => { btn.textContent = 'Copier'; btn.classList.remove('copied'); }, 2200);
   }
 
   function showToast() {
@@ -1454,7 +1733,7 @@
     setTimeout(() => t.classList.remove('show'), 2500);
   }
 
-  // Newsletter form
+  // Newsletter
   document.getElementById('nlForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = document.getElementById('nlBtn');
@@ -1479,11 +1758,11 @@
     }
   });
 
-  // Sticky nav active highlight
+  // Sticky nav active
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav.nav a');
 
-  const observer = new IntersectionObserver(entries => {
+  const navObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         navLinks.forEach(l => l.classList.remove('active'));
@@ -1496,7 +1775,7 @@
     });
   }, { rootMargin: '-20% 0px -70% 0px' });
 
-  sections.forEach(s => observer.observe(s));
+  sections.forEach(s => navObserver.observe(s));
 </script>
 
 </body>
