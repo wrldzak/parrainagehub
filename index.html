@@ -63,6 +63,9 @@
     gtag('js', new Date());
     gtag('config', 'G-SB85FLGE6D');
   </script>
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23f97316'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='13' fill='white'>PH</text></svg>" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -84,6 +87,52 @@
       --muted: #72728a;
       --radius: 18px;
     }
+
+    /* ── LIGHT MODE ── */
+    html.light {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --card2: #fafafa;
+      --border: #e2e2ea;
+      --border2: #d0d0e0;
+      --text: #111118;
+      --muted: #6b6b80;
+    }
+
+    html.light body::before {
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(249,115,22,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(168,85,247,.05) 0%, transparent 60%);
+    }
+
+    html.light .card { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    html.light nav.nav { background: rgba(245,245,247,.92); }
+    html.light .code-row { background: #f0f0f5; }
+    html.light .bonus-banner { background: linear-gradient(135deg, #f3e8ff 0%, #fef3c7 50%, #fff7ed 100%); }
+    html.light .testi { background: rgba(0,0,0,.03); border-color: rgba(0,0,0,.06); }
+    html.light .newsletter-box { background: linear-gradient(135deg, #f3e8ff 0%, #ecfdf5 100%); }
+    html.light .how-step { background: #fff; }
+
+    /* ── THEME TOGGLE ── */
+    #theme-toggle {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--card2);
+      border: 1px solid var(--border2);
+      color: var(--text);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+      z-index: 10;
+    }
+
+    #theme-toggle:hover { border-color: var(--accent); transform: scale(1.1); }
 
     html { scroll-behavior: smooth; }
 
@@ -1211,6 +1260,114 @@
 
     footer .brand { color: var(--accent); font-weight: 800; }
 
+    /* ── FADE IN ANIMATION ── */
+    .card, .how-step {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .55s ease, transform .55s cubic-bezier(.22,1,.36,1);
+    }
+
+    .card.visible, .how-step.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── BADGE NOUVEAU ── */
+    .badge-new {
+      background: #ef4444;
+      color: #fff;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .5; }
+    }
+
+    /* ── FOOTER COMPLET ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 40px 20px 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-grid {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-name {
+      font-size: 20px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-legal {
+      max-width: 960px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-copy { font-size: 12px; color: var(--muted); }
+    .footer-copy .brand { color: var(--accent); font-weight: 700; }
+
+    .footer-mention {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-legal { flex-direction: column; text-align: center; }
+      .footer-mention { text-align: center; }
+    }
+
     /* ── PROGRESS BAR ── */
     #progress-bar {
       position: fixed;
@@ -1344,6 +1501,7 @@
 <!-- ══ HEADER ══ -->
 <header>
   <div class="header-glow"></div>
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Changer le thème">🌙</button>
   <div class="live-badge">
     <div class="pulse"></div>
     Offres actives · Avril 2026
@@ -1639,6 +1797,7 @@
       <!-- Robinhood -->
       <div class="card" id="robinhood">
         <button class="share-btn" onclick="shareOffer('robinhood')" title="Copier le lien">🔗</button>
+        <div class="card-badge badge-new">🆕 Nouveau</div>
         <div class="card-top">
           <div class="card-icon-wrap">🏹</div>
           <div class="card-meta">
@@ -1739,6 +1898,7 @@
       <!-- Scrambly -->
       <div class="card" id="scrambly">
         <button class="share-btn" onclick="shareOffer('scrambly')" title="Copier le lien">🔗</button>
+        <div class="card-badge badge-new">🆕 Nouveau</div>
         <div class="card-top">
           <div class="card-icon-wrap">🎮</div>
           <div class="card-meta">
@@ -1825,10 +1985,68 @@
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  © 2026 <span class="brand">ParrainageHub</span> · @Wrld_zak · Mis à jour en avril 2026
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">ParrainageHub</div>
+      <div class="footer-brand-desc">Site personnel de partage de codes et liens de parrainage. Non affilié aux plateformes citées. Les offres peuvent changer à tout moment.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#how">Comment ça marche</a></li>
+        <li><a href="#bonus">Bonus exclusif</a></li>
+        <li><a href="#banques">Banques</a></li>
+        <li><a href="#crypto">Crypto</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Infos légales</div>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/Wrld_zak" target="_blank" rel="noopener">Contact @Wrld_zak</a></li>
+        <li><a href="#" onclick="alert('Ce site est personnel et non professionnel. Les liens sont des liens de parrainage. Aucune donnée personnelle n\'est vendue. Les emails collectés sont uniquement utilisés pour envoyer des alertes d\'offres.')">Mentions légales</a></li>
+        <li><a href="#" onclick="alert('Politique de confidentialité : Aucune donnée personnelle n\'est vendue ou partagée à des tiers. Les adresses email collectées via le formulaire sont uniquement utilisées pour envoyer des alertes sur les nouvelles offres de parrainage. Vous pouvez vous désinscrire à tout moment.')">Confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <div class="footer-copy">© 2026 <span class="brand">ParrainageHub</span> · @Wrld_zak · Mis à jour en avril 2026</div>
+    <div class="footer-mention">Site non professionnel · Liens de parrainage · Aucune donnée vendue · Emails uniquement pour alertes</div>
+  </div>
 </footer>
 
 <script>
+  // ── THEME TOGGLE ──
+  const html = document.documentElement;
+  const toggleBtn = document.getElementById('theme-toggle');
+
+  function applyTheme(light) {
+    if (light) { html.classList.add('light'); toggleBtn.textContent = '☀️'; }
+    else { html.classList.remove('light'); toggleBtn.textContent = '🌙'; }
+  }
+
+  function toggleTheme() {
+    const isLight = html.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    toggleBtn.textContent = isLight ? '☀️' : '🌙';
+  }
+
+  // Init theme: localStorage > OS preference
+  const saved = localStorage.getItem('theme');
+  if (saved) { applyTheme(saved === 'light'); }
+  else { applyTheme(window.matchMedia('(prefers-color-scheme: light)').matches); }
+
+  // ── SCROLL ANIMATIONS ──
+  const animEls = document.querySelectorAll('.card, .how-step');
+  const animObserver = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        animObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  animEls.forEach(el => animObserver.observe(el));
+
   // Progress bar + back to top
   const progressBar = document.getElementById('progress-bar');
   const backTop = document.getElementById('back-top');
