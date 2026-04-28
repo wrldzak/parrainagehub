@@ -2173,7 +2173,7 @@
   const counterEl = document.getElementById('counter-filleuls');
   const obs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
-      animateCounter(counterEl, 47, 1800);
+      animateCounter(counterEl, parseInt(counterEl.textContent.trim()) || 0, 1800);
       obs.disconnect();
     }
   });
