@@ -1,4 +1,4 @@
-const CACHE = 'parrainagehub-v1';
+const CACHE = 'parrainagehub-v2';
 const ASSETS = [
   '/',
   '/index.html',
