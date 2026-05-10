@@ -34,10 +34,9 @@
         { "@type": "ListItem", "position": 1, "name": "Fortuneo — Jusqu'à 250€", "url": "https://parrainagehub.com/#banques" },
         { "@type": "ListItem", "position": 2, "name": "Revolut — Jusqu'à 200€", "url": "https://parrainagehub.com/#banques" },
         { "@type": "ListItem", "position": 3, "name": "N26 — 25€ à 75€", "url": "https://parrainagehub.com/#banques" },
-        { "@type": "ListItem", "position": 4, "name": "Trade 212 — Action gratuite", "url": "https://parrainagehub.com/#trading" },
-        { "@type": "ListItem", "position": 5, "name": "OKX — Jusqu'à 250€", "url": "https://parrainagehub.com/#crypto" },
-        { "@type": "ListItem", "position": 6, "name": "Kraken — Jusqu'à 100€", "url": "https://parrainagehub.com/#crypto" },
-        { "@type": "ListItem", "position": 7, "name": "Robinhood — 40€ en crypto", "url": "https://parrainagehub.com/#crypto" },
+        { "@type": "ListItem", "position": 4, "name": "OKX — Jusqu'à 250€", "url": "https://parrainagehub.com/#crypto" },
+        { "@type": "ListItem", "position": 5, "name": "Kraken — Jusqu'à 100€", "url": "https://parrainagehub.com/#crypto" },
+        { "@type": "ListItem", "position": 6, "name": "Robinhood — 40€ en crypto", "url": "https://parrainagehub.com/#crypto" },
         { "@type": "ListItem", "position": 8, "name": "Scrambly — 5000 coins", "url": "https://parrainagehub.com/#rewards" }
       ]
     }
@@ -1545,11 +1544,11 @@
 
   <div class="stats-bar">
     <div class="stat">
-      <div class="stat-num" id="counter-filleuls">70</div>
+      <div class="stat-num" id="counter-filleuls">58</div>
       <div class="stat-label">Filleuls parrainés</div>
     </div>
     <div class="stat">
-      <div class="stat-num">9</div>
+      <div class="stat-num">8</div>
       <div class="stat-label">Offres actives</div>
     </div>
     <div class="stat">
@@ -1781,30 +1780,6 @@
     </div>
     <div class="grid">
 
-      <!-- Trade 212 -->
-      <div class="card" id="trade212">
-        <button class="share-btn" onclick="shareOffer('trade212')" aria-label="Partager le lien Trade 212">🔗</button>
-        <div class="card-top">
-          <div class="card-icon-wrap">📊</div>
-          <div class="card-meta">
-            <div class="platform">Trading &amp; Investissement</div>
-            <div class="card-name">Trade 212</div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="reward">Action gratuite offerte</div>
-        <div class="condition">Valeur aléatoire — dépôt de 10 € requis</div>
-        <div class="card-meta-row">
-          <span class="meta-pill">🟡 Moyen</span>
-          <span class="meta-pill">⏱ Reçu en 1-3 jours</span>
-        </div>
-        <div class="desc">Inscrivez-vous avec le lien de parrainage, vérifiez votre identité et effectuez un dépôt de 10 € pour recevoir une action gratuite.</div>
-        <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
-        <div class="tip"><strong>💡</strong> Le dépôt de 10 € est récupérable instantanément après validation.</div>
-        <div class="actions">
-          <a class="cta" href="https://www.trading212.com/fr/invite/4DtCsYMcP9k" target="_blank" rel="noopener" onclick="gtag('event','click_parrainage',{plateforme:'Trade212',type:'lien'})" aria-label="Utiliser le lien de parrainage Trade 212">Utiliser ce lien</a>
-        </div>
-      </div>
 
     </div>
   </section>
@@ -1833,13 +1808,13 @@
           </div>
         </div>
         <div class="divider"></div>
-        <div class="reward">40 € en cryptomonnaie</div>
+        <div class="reward">10 € en cryptomonnaie</div>
         <div class="condition">Pour un dépôt de seulement 20 €</div>
         <div class="card-meta-row">
           <span class="meta-pill">🟡 Moyen</span>
           <span class="meta-pill">⏱ Reçu en 3-7 jours</span>
         </div>
-        <div class="desc">Créez votre compte via le lien, vérifiez votre identité et déposez 20 € pour commencer à trader et recevoir 40 € en crypto.</div>
+        <div class="desc">Créez votre compte via le lien, vérifiez votre identité et déposez 20 € pour commencer à trader et recevoir 10 € en crypto.</div>
         <div class="warn-box">⚠️ <strong>NIF requis</strong> — Munissez-vous de votre numéro d'identification fiscal pour compléter l'inscription.</div>
         <div class="tip"><strong>💡</strong> Le dépôt de 20 € est récupérable instantanément après réception du bonus.</div>
         <div class="actions">
@@ -2173,7 +2148,7 @@
   const counterEl = document.getElementById('counter-filleuls');
   const obs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
-      animateCounter(counterEl, parseInt(counterEl.textContent.trim()) || 0, 1800);
+      animateCounter(counterEl, 47, 1800);
       obs.disconnect();
     }
   });
